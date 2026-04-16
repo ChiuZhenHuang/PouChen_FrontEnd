@@ -1,0 +1,7 @@
+/* 使用tailwind添加前墜，避免與vuetify衝突 */
+
+/* 只載入主題和工具類別，不載入 preflight (基礎重置) */
+@import "tailwindcss/theme" prefix(tw);
+@import "tailwindcss/utilities" prefix(tw);
+
+@layer tailwind-theme, tailwind-utilities, vuetify-core, vuetify-components;
