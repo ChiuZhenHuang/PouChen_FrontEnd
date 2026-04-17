@@ -11,10 +11,13 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/three": "^0.184.0",
+    "@vueuse/core": "^14.2.1",
     "debounce": "^3.0.0",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "tailwindcss": "^4.2.2",
+    "three": "^0.184.0",
     "vue": "^3.5.32",
     "vue-router": "^5.0.4",
     "vuetify": "^4.0.5"
