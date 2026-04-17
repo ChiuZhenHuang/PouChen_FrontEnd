@@ -2,8 +2,21 @@
   <v-container>
     <v-card outlined>
       <div v-if="item">
-        <v-card-title>
-          {{ item.name }}
+        <v-card-title class="d-flex justify-space-between align-center">
+          <span>{{ item.name }}</span>
+
+          <v-tooltip text="查看3D模型" location="bottom">
+            <template #activator="{ props }">
+              <v-btn
+                v-bind="props"
+                icon
+                variant="text"
+                @click="showThreeDialog = true"
+              >
+                <v-icon>mdi-cube-scan</v-icon>
+              </v-btn>
+            </template>
+          </v-tooltip>
         </v-card-title>
 
         <v-card-text>
@@ -97,6 +110,7 @@
         未選擇模型零件
       </div>
     </v-card>
+    <ThreeDialog v-model="showThreeDialog" :data="item ?? null" />
   </v-container>
 </template>
 
@@ -105,9 +119,12 @@ import debounce from "debounce";
 import { ref, watch, computed } from "vue";
 import { useMeshStore } from "@/stores/meshStore";
 import { formatNumber } from "@/utils/format";
+import ThreeDialog from "./ThreeDialog.vue";
 
 const store = useMeshStore();
 const item = computed(() => store.activeItem);
+
+const showThreeDialog = ref(false);
 
 // 本地暫存multiplier
 const tempMultiplier = ref(1);
@@ -135,6 +152,6 @@ watch(
 
     tempMultiplier.value = val ?? 1;
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>

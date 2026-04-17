@@ -24,7 +24,6 @@
           hover
           density="comfortable"
           hide-default-footer
-          @click:row="onRowClick"
         >
           <template #[`item.name`]="{ item }">
             <v-tooltip location="bottom">
@@ -69,29 +68,16 @@
         </h3>
       </v-card-actions>
     </v-card>
-    <ThreeDialog v-model="showThreeDialog" :data="selectedItem" />
   </v-container>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { formatThousands, formatNumber } from "@/utils/format";
 import { useMeshStore } from "@/stores/meshStore";
 import { useDisplay } from "vuetify";
-import ThreeDialog from "./ThreeDialog.vue";
-import type { MeshItem } from "@/types/mesh";
 
 const { smAndDown } = useDisplay();
 const store = useMeshStore();
-
-const showThreeDialog = ref(false);
-
-const selectedItem = ref<MeshItem | null>(null);
-
-function onRowClick(_: Event, { item }: { item: MeshItem }) {
-  showThreeDialog.value = true;
-  selectedItem.value = item;
-}
 
 const header = [
   {
