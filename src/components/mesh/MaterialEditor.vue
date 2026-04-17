@@ -11,6 +11,7 @@
                 v-bind="props"
                 icon
                 variant="text"
+                color="teal-darken-3"
                 @click="showThreeDialog = true"
               >
                 <v-icon>mdi-cube-scan</v-icon>
