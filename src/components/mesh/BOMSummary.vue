@@ -13,7 +13,7 @@
         </p>
       </v-card-title>
       <v-divider />
-      <v-card-text class="pa-0" style="overflow-y: auto; max-height: 40vh">
+      <v-card-text class="pa-0" style="overflow-y: auto; max-height: 35vh">
         <v-data-table
           :items="store.list"
           :headers="header"
@@ -38,9 +38,7 @@
           </template>
 
           <template #[`item.color`]="{ item }">
-            <v-icon size="14" :style="{ color: item.color }">
-              mdi-square
-            </v-icon>
+            <v-icon size="14" :color="item.color"> mdi-square </v-icon>
             {{ item.color }}
           </template>
 

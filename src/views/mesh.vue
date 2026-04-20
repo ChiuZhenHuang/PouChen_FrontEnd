@@ -2,11 +2,11 @@
   <v-container>
     <v-row no-gutters>
       <v-col cols="12" md="4" class="d-flex">
-        <MeshList class="flex-grow-1" />
+        <MeshList />
       </v-col>
 
       <v-col cols="12" md="8" class="d-flex flex-column">
-        <MaterialEditor class="flex-grow-1" />
+        <MaterialEditor />
         <BOMSummary />
       </v-col>
     </v-row>

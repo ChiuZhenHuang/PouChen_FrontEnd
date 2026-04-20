@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <v-card outlined class="h-100" :style="mdAndUp && { minHeight: '524px' }">
+    <v-card outlined class="h-100">
       <v-card-title class="d-flex align-center">
         <v-icon size="20" color="teal-darken-3" start>mdi-content-copy</v-icon>
         模型零件清單
       </v-card-title>
       <v-divider />
-      <v-card-text style="overflow-y: auto; max-height: 70vh">
+      <v-card-text style="overflow-y: auto; max-height: 75vh">
         <v-list>
           <v-list-item
             v-for="item in store.list"
@@ -30,14 +30,12 @@
                 <div class="mr-1">
                   ${{
                     formatThousands(
-                      formatNumber(item.basePrice * item.multiplier)
+                      formatNumber(item.basePrice * item.multiplier),
                     )
                   }}
                 </div>
 
-                <v-icon size="16" :style="{ color: item.color }">
-                  mdi-circle
-                </v-icon>
+                <v-icon size="16" :color="item.color"> mdi-circle </v-icon>
               </div>
             </template>
           </v-list-item>
@@ -50,8 +48,6 @@
 <script setup lang="ts">
 import { formatThousands, formatNumber } from "@/utils/format";
 import { useMeshStore } from "@/stores/meshStore";
-import { useDisplay } from "vuetify";
 
 const store = useMeshStore();
-const { mdAndUp } = useDisplay();
 </script>

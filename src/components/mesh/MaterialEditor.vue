@@ -33,9 +33,7 @@
                 clearable
               >
                 <template #prepend-inner>
-                  <v-icon size="16" :style="{ color: item.color }">
-                    mdi-square
-                  </v-icon>
+                  <v-icon size="16" :color="item.color"> mdi-square </v-icon>
                 </template>
               </v-text-field>
             </v-col>
@@ -105,8 +103,7 @@
       </div>
       <div
         v-else
-        style="min-height: 210px"
-        class="d-flex align-center justify-center text-grey"
+        class="d-flex align-center justify-center text-grey tw:min-h-[210px]"
       >
         未選擇模型零件
       </div>
